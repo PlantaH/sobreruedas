@@ -1,0 +1,58 @@
+
+/*CAROUSEL*/
+.carousel-control-prev-icon, .carousel-control-next-icon {
+    height: 100px;
+    width: 100px;
+    outline: $negro;
+    background-color: $crimson;
+    background-size: 100%, 100%;
+    border-radius: 50%;
+    border: 1px solid $negro;
+}
+.carousel-item img{    
+    margin: auto; 
+    display: block;
+}
+.tituloCarousel{
+    font-size: 65px; 
+    text-align: left;
+}
+.subTituloCarousel{
+    font-size: 25px; 
+    color: $negro;
+    text-align: left;
+}
+.seccionCarouselPrincipal{
+    background-color:$blanco; 
+    font-family: $fuentePrincipal; 
+    text-align: center;
+    width: 100%;
+    margin: 0 auto;
+    color:$crimson;
+}
+   
+ .carousel-item {
+    height: 200px; 
+  }
+  
+
+  .carousel-item img {
+      position: absolute;
+      object-fit:inherit;
+      height: 100%;
+      top: 0;
+      left: 0; 
+  }
+
+  .carouselProductos-inner{
+      padding: 0;
+      margin: 0;
+      height: 900px;
+  }
+  .carouselProductos-inner img{
+    padding: 0;
+    margin: 0;
+    height: 900px;
+    width: 100%;
+}
+/*FIN CAROUSEL*/

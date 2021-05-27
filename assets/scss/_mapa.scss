@@ -1,0 +1,16 @@
+.mapa__lista{
+    list-style:none;
+    margin-bottom: 15px; 
+    font-family: $fuentePrincipal;
+    text-align: left; 
+    padding: 10px;
+    li{
+        .titulo{
+            color:$crimson
+        }
+    }
+    a{
+        text-decoration: none;
+        color: $grisOscuro;
+    }
+}

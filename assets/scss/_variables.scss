@@ -1,0 +1,48 @@
+$marginBody: 0px;
+$paddingBody: 0px;
+
+$videoAlto: 500px !default;;
+
+$negro: black;
+$blanco: white;
+$grisclaro: #EDEDED;
+$grisOscuro: darkgrey;
+$crimson: rgb(187, 27, 27);
+
+
+$colorMenuBarra: $negro;
+$colorMenuItem: $blanco;
+$colorMenuSeleccion: $crimson;
+$colorMalbec:$crimson;
+
+$colorAyudaFondo: $grisclaro;
+$colorAyuda: $blanco;
+$colorAyudaTitulo: $negro;
+$colorAyudaSub:  $grisOscuro;
+$colorAyudaLink:  darkred;
+$colorOferta: #f2d900;
+
+$sizeTarjetaTitulo: 40px;
+
+$buttons: (
+  reset: ($grisclaro, $negro),
+  send: ($negro, $blanco)
+); 
+.m-button {  
+  color: $grisclaro; 
+  font-family: $fuentePrincipal; 
+  font-size: 20px;
+  width: 100px;
+  height: 50px;
+  border: 0; 
+   
+  @each $name, $colors in $buttons {
+    $bgcolor: nth($colors, 1);
+    $fontcolor: nth($colors, 2);
+     
+    &--#{$name} {
+      background-color: $bgcolor;
+      color: $fontcolor;
+    }  
+  }
+}

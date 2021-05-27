@@ -1,0 +1,113 @@
+
+/*BANNER PRINCIPAL*/
+.textoBanner{
+    position: absolute; 
+    top:8%; 
+    margin-left:100px;
+    font-family: $fuenteBanner;
+    font-size: 80px;
+    color: white; 
+    line-height: 100%;
+} 
+.textoBanner__titulo{
+    margin: 0px;   
+    border: 0;
+    color:$blanco;
+    font-weight: bold;
+}
+.textoBanner__medio--color{
+    color:$crimson ;
+}
+
+.gradiente {
+    height:100%; 
+    width: 100%;
+    position: absolute; 
+    top:0px;
+    background: rgba(18,18,18,1);
+    background: -moz-linear-gradient(-45deg, rgba(18,18,18,1) 0%, rgba(20,20,20,1) 9%, rgba(23,23,23,1) 15%, rgba(20,20,20,1) 24%, rgba(15,15,15,0.49) 39%, rgba(0,0,0,0.07) 51%, rgba(1,1,1,0.04) 52%, rgba(10,10,10,0.03) 59%, rgba(5,5,5,0.03) 60%, rgba(0,0,0,0.02) 76%, rgba(5,5,5,0.01) 87%, rgba(8,8,8,0.01) 91%, rgba(10,10,10,0) 95%, rgba(10,10,10,0) 100%);
+    background: -webkit-gradient(left top, right bottom, color-stop(0%, rgba(18,18,18,1)), color-stop(9%, rgba(20,20,20,1)), color-stop(15%, rgba(23,23,23,1)), color-stop(24%, rgba(20,20,20,1)), color-stop(39%, rgba(15,15,15,0.49)), color-stop(51%, rgba(0,0,0,0.07)), color-stop(52%, rgba(1,1,1,0.04)), color-stop(59%, rgba(10,10,10,0.03)), color-stop(60%, rgba(5,5,5,0.03)), color-stop(76%, rgba(0,0,0,0.02)), color-stop(87%, rgba(5,5,5,0.01)), color-stop(91%, rgba(8,8,8,0.01)), color-stop(95%, rgba(10,10,10,0)), color-stop(100%, rgba(10,10,10,0)));
+    background: -webkit-linear-gradient(-45deg, rgba(18,18,18,1) 0%, rgba(20,20,20,1) 9%, rgba(23,23,23,1) 15%, rgba(20,20,20,1) 24%, rgba(15,15,15,0.49) 39%, rgba(0,0,0,0.07) 51%, rgba(1,1,1,0.04) 52%, rgba(10,10,10,0.03) 59%, rgba(5,5,5,0.03) 60%, rgba(0,0,0,0.02) 76%, rgba(5,5,5,0.01) 87%, rgba(8,8,8,0.01) 91%, rgba(10,10,10,0) 95%, rgba(10,10,10,0) 100%);
+    background: -o-linear-gradient(-45deg, rgba(18,18,18,1) 0%, rgba(20,20,20,1) 9%, rgba(23,23,23,1) 15%, rgba(20,20,20,1) 24%, rgba(15,15,15,0.49) 39%, rgba(0,0,0,0.07) 51%, rgba(1,1,1,0.04) 52%, rgba(10,10,10,0.03) 59%, rgba(5,5,5,0.03) 60%, rgba(0,0,0,0.02) 76%, rgba(5,5,5,0.01) 87%, rgba(8,8,8,0.01) 91%, rgba(10,10,10,0) 95%, rgba(10,10,10,0) 100%);
+    background: -ms-linear-gradient(-45deg, rgba(18,18,18,1) 0%, rgba(20,20,20,1) 9%, rgba(23,23,23,1) 15%, rgba(20,20,20,1) 24%, rgba(15,15,15,0.49) 39%, rgba(0,0,0,0.07) 51%, rgba(1,1,1,0.04) 52%, rgba(10,10,10,0.03) 59%, rgba(5,5,5,0.03) 60%, rgba(0,0,0,0.02) 76%, rgba(5,5,5,0.01) 87%, rgba(8,8,8,0.01) 91%, rgba(10,10,10,0) 95%, rgba(10,10,10,0) 100%);
+    background: linear-gradient(135deg, rgba(18,18,18,1) 0%, rgba(20,20,20,1) 9%, rgba(23,23,23,1) 15%, rgba(20,20,20,1) 24%, rgba(15,15,15,0.49) 39%, rgba(0,0,0,0.07) 51%, rgba(1,1,1,0.04) 52%, rgba(10,10,10,0.03) 59%, rgba(5,5,5,0.03) 60%, rgba(0,0,0,0.02) 76%, rgba(5,5,5,0.01) 87%, rgba(8,8,8,0.01) 91%, rgba(10,10,10,0) 95%, rgba(10,10,10,0) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#121212', endColorstr='#0a0a0a', GradientType=1 );
+  } 
+
+.subBanner{
+    width: 100%;
+    top:85%;    
+    position: absolute; 
+
+    display: flex; 
+    flex-flow: row wrap;    
+    justify-content:center;      
+    align-items: flex-start; 
+
+    cursor: pointer;
+     
+}
+.subBannerImagen img{
+    height: 250px;
+    width: 400px;
+    margin: 15px 0;   
+ }
+ 
+ 
+ .contenedorbanner{
+    position: relative;
+    display: inline-block;
+    text-align: center;
+}
+
+.contenedorbanner:hover img {
+        -webkit-transform:scale(1.3);
+        -webkit-transition: all 1s ease;
+        -moz-transition: all 1s ease;
+        -ms-transition: all 1s ease;
+        transition: all 1s ease;
+        transform:scale(1.3);
+}
+.contenedorbanner {overflow:hidden;}
+
+
+ 
+.centrado{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 40%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(22, 22, 22, 0.5);
+    font-family: 'Monda', sans-serif;
+    font-size: 40px;
+    color: white;     
+} 
+
+ 
+.centradoSub{
+    position: absolute;
+    top: 70%;
+    left: 50%;
+    width: 100%;
+    height: 40%;
+    transform: translate(-50%, -50%);
+    font-family: 'Monda', sans-serif;
+    font-size: 20px;
+    color: white;     
+} 
+
+/*
+.imagenProductoLista:hover {
+    -webkit-transform: rotateY(180deg);
+    -webkit-transform-style: preserve-3d;
+    transform: rotateY(180deg);
+    transform-style: preserve-3d;
+}
+*/
+
+.imagenProductoLista{
+    height: 250px;    
+}
+/**/

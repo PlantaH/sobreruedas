@@ -1,0 +1,23 @@
+.logo{ 
+    color: $blanco !important;
+    font-family: $fuenteLogo;
+    font-size: 40px;
+    font-weight: bold; 
+}
+
+.menuBarra{
+    background-color: $colorMenuBarra !important;
+}
+.menuItem{
+    color: $colorMenuItem !important;
+    font-family: $fuenteMenuItem;
+    font-size: 20px;  
+}
+.menuItemSeleccion{
+    color: $colorMenuSeleccion !important;
+}
+
+.navbar-nav--opcionesPrincipales{
+    @extend .logo;
+    width: 90% !important;
+}

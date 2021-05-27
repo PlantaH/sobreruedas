@@ -1,0 +1,133 @@
+
+/************************
+/* Media Queries 
+*************************/
+/* MOBILE */
+@media (max-width: 767px){
+    
+    .logoRedSocial{
+        font-size: 3rem;
+    }
+    .logo{
+        font-size: 30px;
+    }
+
+    .bannerHeader {
+        display: none;
+    }
+     
+    
+    .gridMensajePrincipal{
+      display: none;
+    }
+    .gridBannerPrincipal{
+      display: none;
+    }
+
+    .columna1 img, .columna2 img, .columna3 img{
+      width: 400px;
+   }
+
+   .columnaProducto{
+     font-size: 25px;
+   }
+
+   .tituloCarousel{
+      font-size: 25px; 
+   }
+
+
+
+  .tituloProductos{
+    font-size:  3rem;
+  } 
+
+  .tituloSeccion{
+    font-size:  2rem;
+  } 
+  
+  .gridContacto {
+    display: grid;
+    flex-wrap:wrap;
+    align-content: center;
+    margin-top: 50px;
+    grid-template-columns: 100%;
+    grid-template-areas: "gridContactoFormulario" 
+                         "gridContactoMapa"                         
+                         ;
+  }
+  .gridContactoMapa { grid-area: gridContactoMapa; }
+  .gridContactoFormulario { grid-area: gridContactoFormulario;  }
+
+  .gridFormularioTitulo, .gridFormularioNombre, .gridFormularioEmail, .gridFormularioComentarios{
+    font-size: 15px;
+  }
+
+  .gridCarouselPrincipal{
+    display: none;
+  }
+
+  .seccionPrincipalAyuda__titulo{
+    font-size: 20px !important;
+    
+    }
+
+  .seccionPrincipalAyuda__sub{
+    font-size: 10px !important; 
+  }
+  .seccionPrincipalAyuda__link{   
+    font-size: 10px !important;     
+  }
+
+  .footPieNews,   .footPieRed{
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+  .footPieLogo{
+    display: none;
+  }
+  .footerContenedorBajo{
+    text-align: center;
+    div{
+      width: 100%; 
+    }
+  }
+}
+
+/* Tablet */
+@media (min-width: 768px) and (max-width: 1200px) {
+    .logoRedSocial{
+        font-size: 30px;
+    }
+    .logo{
+        font-size: 35px;
+    }
+    #bannerHeader, #menuPrincipal{
+        display: none;
+    }
+    #menuPrincipalOpcionesMobile{
+        display: block;
+    }
+    .gridMensajePrincipal{
+      display: block;
+    }
+
+    .columna1 img, .columna2 img, .columna3 img{
+      width: 600px;
+   }
+   .columnaProducto{
+    font-size: 35px;
+  }
+}
+
+/* Desktop */
+@media (min-width: 1200px){     
+    #menuPrincipalOpcionesMobile{
+        display: none;
+    } 
+    .gridMensajePrincipal{
+      display: none;
+    } 
+}
+ 

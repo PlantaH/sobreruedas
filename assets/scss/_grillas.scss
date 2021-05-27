@@ -1,0 +1,103 @@
+.grid {
+    display: grid;
+    flex-wrap:wrap;
+    align-content: stretch;
+    grid-template-columns: 100%;
+    grid-template-areas: "gridHeader" 
+                         "gridBannerPrincipal"
+                         "gridMensajePrincipal"  
+                         "gridProductosPrincipal"                         
+                         "gridContactoPrincipal" 
+                         "gridCarouselPrincipal"
+                         "gridFooter"
+                         "gridSubFooter";
+  }
+  
+  .gridHeader { grid-area: gridHeader;  }
+  .gridBannerPrincipal { grid-area: gridBannerPrincipal; padding: 0; }
+  .gridMensajePrincipal { grid-area: gridMensajePrincipal;   }
+  .gridProductosPrincipal { grid-area: gridProductosPrincipal; }
+  .gridContactoPrincipal { grid-area: gridContactoPrincipal; }
+  .gridCarouselPrincipal { grid-area: gridCarouselPrincipal; }
+  .gridFooter { grid-area: gridFooter; background:$negro; margin-top: 20px;}
+  .gridSubFooter { grid-area: gridSubFooter;} 
+
+ 
+.gridMenu {
+    width: 100%;
+    display: grid;
+    flex-wrap:nowrap;
+    grid-template-columns: 30% 70%;
+    grid-template-areas: "gridMenuLogo gridMenuOpciones"                         
+    ;
+}
+
+.gridMenuLogo { grid-area: gridMenuLogo; }
+.gridMenuOpciones { grid-area: gridMenuOpciones;   } 
+ 
+  
+.gridContacto {
+    display: grid;
+    flex-wrap:wrap;
+    align-content: center;
+    margin-top: 60px;   
+    grid-template-columns: 50% 50%;
+    grid-template-areas: "gridContactoMapa gridContactoFormulario"
+                         ;
+  }
+  .gridContactoMapa { grid-area: gridContactoMapa; padding-left: 1rem; padding-right: 1rem;}
+  .gridContactoFormulario { grid-area: gridContactoFormulario;  }
+
+  
+  
+.gridFormulario {
+    display: grid;
+    flex-wrap:nowrap;
+    align-content: center;     
+    padding: 2%;
+    grid-template-columns: 20% 80%;
+    grid-template-areas: "gridFormularioTitulo gridFormularioTitulo"
+                         "gridFormularioNombre gridFormularioInputNombre"
+                         "gridFormularioEmail gridFormularioInputEmail"
+                         "gridFormularioComentarios gridFormularioInputComentarios"
+                         "gridFormularioBotones gridFormularioBotones"
+                         ;
+    font-family: 'Monda', sans-serif;                     
+}
+.gridFormularioTitulo { grid-area: gridFormularioTitulo; text-align: center;}
+.gridFormularioNombre { grid-area: gridFormularioNombre;  color:$crimson;}
+.gridFormularioInputNombre { grid-area: gridFormularioInputNombre;  }
+.gridFormularioEmail { grid-area: gridFormularioEmail;  color:$crimson;}
+.gridFormularioInputEmail { grid-area: gridFormularioInputEmail;  }
+.gridFormularioComentarios { grid-area: gridFormularioComentarios;  color:$crimson;}
+.gridFormularioInputComentarios { grid-area: gridFormularioInputComentarios;  }
+.gridFormularioBotones { grid-area: gridFormularioBotones; text-align: center;}
+
+.gridFormularioBotones input{
+    background-color: $negro;
+    color: $grisclaro; 
+    font-family: $fuentePrincipal; 
+    font-size: 20px;
+    width: 300px;
+    height: 50px;
+    border: 0; 
+}
+.gridFormularioBotones input:hover {
+    background: $blanco;
+    color: $negro;    
+    border: 1px solid $negro;
+    cursor: pointer;
+}
+.inputFormulario{ 
+    width: 70%;
+    background-color: $blanco;
+    font-family: $fuentePrincipal; 
+    color:$crimson;
+}
+.gridFormularioBotones div{
+    width:20px; 
+    display: inline;
+}
+.gridFormularioBotones input{
+    width:40%;
+}

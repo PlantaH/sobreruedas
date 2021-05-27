@@ -1,0 +1,92 @@
+ 
+
+
+.logoRedSocial{
+    display: inline-block; 
+    font-size:2rem;  
+    background-color: $negro;
+    color: $grisclaro;
+}
+.logoRedSocial a{
+    text-decoration: none;
+    background-color: $negro;
+    color: $blanco;
+}
+
+.logoRedSocial:hover {
+    background: $negro;
+    color:$crimson;    
+  }
+ 
+.logoPie{
+    display:inline;
+    color:$blanco;
+    font-family: $fuenteLogo;
+    font-size: 26px;
+    
+}  
+
+.derechosPie{
+    @extend .logoPie;
+    font-family: $fuenteDerechos; 
+    font-size: 16px;    
+} 
+
+.footerContenedorBajo{
+    background-color: $crimson;
+    font-family: $fuenteNotas;
+    color: $grisclaro;    
+    font-size: 10px;
+    
+    text-align: center;
+   
+    padding: 10px;
+    a{
+        text-decoration: none;
+        color: $grisclaro; 
+    }
+    a:hover{
+        text-decoration: underline;
+    }
+    div{
+        width: auto; 
+    }
+}
+
+.footPieNews{
+    text-align: left;
+    margin: auto;
+    font-family: $fuenteNotas;
+    font-size: 0.8rem;
+    color: $grisclaro;
+    input[type=text]{
+        outline: none;
+        border: none;
+        background-color: $grisclaro;
+        border-radius: 15px;
+    }
+     
+    input[type=button]{
+        background-color:$crimson;
+        border: none;
+        color: $blanco;
+        border-radius: 15px;
+
+        text-decoration: none;
+        margin: 4px 2px;
+        cursor: pointer;
+      }
+} 
+
+.footPieRed{
+    text-align: right;
+    a{
+        padding-left: 20px;
+    }
+    margin: auto;
+}
+.footPieLogo{
+    @extend .logo;
+    text-align: center;
+    margin: auto; 
+}
