@@ -794,7 +794,10 @@ body {
   text-align: left;
   height: 250px;
   padding-top: 10px;
-  text-align: center; }
+  text-align: center;
+  background-image: url(../../img/fondocontactorueda.png);
+  background-repeat: no-repeat;
+  background-position: center right; }
 
 .seccionPrincipalAyuda__titulo {
   color: black;
@@ -928,3 +931,7 @@ body {
 .imgBanner {
   width: 100%;
   height: 300px; }
+
+.carousel-item a {
+  text-decoration: none;
+  color: darkred; }
