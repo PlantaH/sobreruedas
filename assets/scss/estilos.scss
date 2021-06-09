@@ -232,4 +232,19 @@ $hs: 1, 2, 3, 4, 5, 6;
      text-decoration: none;
      color: $colorAyudaLink;
  }
- 
+
+ .grupo-textoLibre{
+    display: flex; 
+    justify-content: center;
+ }
+.textoLibre{
+    font-family: $fuentePrincipal;
+    p{ 
+        text-align: justify !important;
+        color: $grisOscuro;
+     } 
+     h3{ 
+        text-align: justify !important; 
+        color:$crimson;
+     }
+}
