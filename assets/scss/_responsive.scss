@@ -93,6 +93,20 @@
       width: 100%; 
     }
   }
+
+  .seccionPrincipalAyuda{
+    background-color: $grisclaro; 
+    color: $colorAyuda;
+    text-align: left;    
+    height: 250px;   
+    padding-top: 10px;
+    text-align: center;           
+  }
+
+  #huellaFinal{
+    display: none;
+  }
+
 }
 
 /* Tablet */

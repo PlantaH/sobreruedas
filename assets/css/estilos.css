@@ -699,7 +699,16 @@
   .footerContenedorBajo {
     text-align: center; }
     .footerContenedorBajo div {
-      width: 100%; } }
+      width: 100%; }
+  .seccionPrincipalAyuda {
+    background-color: #EDEDED;
+    color: white;
+    text-align: left;
+    height: 250px;
+    padding-top: 10px;
+    text-align: center; }
+  #huellaFinal {
+    display: none; } }
 
 /* Tablet */
 @media (min-width: 768px) and (max-width: 1200px) {
