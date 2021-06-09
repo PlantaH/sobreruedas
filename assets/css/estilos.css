@@ -823,9 +823,7 @@ body {
   height: 250px;
   padding-top: 10px;
   text-align: center;
-  background-image: url(../../img/fondocontactorueda.png);
-  background-repeat: no-repeat;
-  background-position: center right; }
+  background: linear-gradient(rgba(255, 255, 255, 0.973), rgba(236, 146, 146, 0.9)), url(../../img/fondoContacto.jpg); }
 
 .seccionPrincipalAyuda__titulo {
   color: black;
