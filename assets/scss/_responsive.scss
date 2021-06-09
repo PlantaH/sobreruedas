@@ -36,10 +36,8 @@
       font-size: 25px; 
    }
 
-
-
   .tituloProductos{
-    font-size:  3rem;
+    font-size:  2rem !important; 
   } 
 
   .tituloSeccion{
@@ -66,21 +64,10 @@
   .gridCarouselPrincipal{
     display: none;
   }
-
-  
-  .seccionPrincipalAyuda{
-    background-color: red; 
-    color: $colorAyuda;
-    text-align: left;    
-    height: 250px;   
-    padding-top: 10px;
-    text-align: center;           
-  }
-
+ 
   .seccionPrincipalAyuda__titulo{
-    font-size: 1.5rem !important;
-    
-    }
+    font-size: 1.5rem !important;    
+  }
 
   .seccionPrincipalAyuda__sub{
     font-size: 1rem !important; 
@@ -105,8 +92,12 @@
     }
   }
 
-  #huellaFinal{
+  #huellaFinal, .seccionPrincipalAyuda{
     display: none;
+  }
+
+  .padCard{
+    padding-bottom: 2rem;
   }
 
 }
@@ -135,6 +126,8 @@
    .columnaProducto{
     font-size: 35px;
   }
+
+   
 }
 
 /* Desktop */

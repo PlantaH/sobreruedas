@@ -666,7 +666,7 @@
   .tituloCarousel {
     font-size: 25px; }
   .tituloProductos, .subtituloProductos {
-    font-size: 3rem; }
+    font-size: 2rem !important; }
   .tituloSeccion {
     font-size: 2rem; }
   .gridContacto {
@@ -684,13 +684,6 @@
     font-size: 15px; }
   .gridCarouselPrincipal {
     display: none; }
-  .seccionPrincipalAyuda {
-    background-color: red;
-    color: white;
-    text-align: left;
-    height: 250px;
-    padding-top: 10px;
-    text-align: center; }
   .seccionPrincipalAyuda__titulo {
     font-size: 1.5rem !important; }
   .seccionPrincipalAyuda__sub {
@@ -707,8 +700,10 @@
     text-align: center; }
     .footerContenedorBajo div {
       width: 100%; }
-  #huellaFinal {
-    display: none; } }
+  #huellaFinal, .seccionPrincipalAyuda {
+    display: none; }
+  .padCard {
+    padding-bottom: 2rem; } }
 
 /* Tablet */
 @media (min-width: 768px) and (max-width: 1200px) {
