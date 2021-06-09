@@ -684,12 +684,19 @@
     font-size: 15px; }
   .gridCarouselPrincipal {
     display: none; }
+  .seccionPrincipalAyuda {
+    background-color: red;
+    color: white;
+    text-align: left;
+    height: 250px;
+    padding-top: 10px;
+    text-align: center; }
   .seccionPrincipalAyuda__titulo {
-    font-size: 20px !important; }
+    font-size: 1.5rem !important; }
   .seccionPrincipalAyuda__sub {
-    font-size: 10px !important; }
+    font-size: 1rem !important; }
   .seccionPrincipalAyuda__link {
-    font-size: 10px !important; }
+    font-size: 1rem !important; }
   .footPieNews, .footPieRed {
     text-align: center;
     margin-top: 20px;
@@ -700,13 +707,6 @@
     text-align: center; }
     .footerContenedorBajo div {
       width: 100%; }
-  .seccionPrincipalAyuda {
-    background-color: #EDEDED;
-    color: white;
-    text-align: left;
-    height: 250px;
-    padding-top: 10px;
-    text-align: center; }
   #huellaFinal {
     display: none; } }
 

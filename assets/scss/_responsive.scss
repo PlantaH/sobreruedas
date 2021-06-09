@@ -67,16 +67,26 @@
     display: none;
   }
 
+  
+  .seccionPrincipalAyuda{
+    background-color: red; 
+    color: $colorAyuda;
+    text-align: left;    
+    height: 250px;   
+    padding-top: 10px;
+    text-align: center;           
+  }
+
   .seccionPrincipalAyuda__titulo{
-    font-size: 20px !important;
+    font-size: 1.5rem !important;
     
     }
 
   .seccionPrincipalAyuda__sub{
-    font-size: 10px !important; 
+    font-size: 1rem !important; 
   }
   .seccionPrincipalAyuda__link{   
-    font-size: 10px !important;     
+    font-size: 1rem !important;     
   }
 
   .footPieNews,   .footPieRed{
@@ -87,20 +97,12 @@
   .footPieLogo{
     display: none;
   }
+
   .footerContenedorBajo{
     text-align: center;
     div{
       width: 100%; 
     }
-  }
-
-  .seccionPrincipalAyuda{
-    background-color: $grisclaro; 
-    color: $colorAyuda;
-    text-align: left;    
-    height: 250px;   
-    padding-top: 10px;
-    text-align: center;           
   }
 
   #huellaFinal{
