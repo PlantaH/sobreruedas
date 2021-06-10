@@ -88,6 +88,7 @@
             flex-grow: 1; }
   
   .product-title, .price, .sizes, .colors {
+    font-family: $fuentePrincipal;
     text-transform: UPPERCASE;
     font-weight: bold; }
   
@@ -123,6 +124,8 @@
       margin-left: 20px; }
   
   .add-to-cart, .like {
+    font-family: $fuentePrincipal;
+    font-size:1.5rem;
     background: $crimson;
     padding: 1.2em 1.5em;
     border: none;
@@ -164,6 +167,4 @@
     100% {
       opacity: 1;
       -webkit-transform: scale(1);
-              transform: scale(1); } }
-  
-  /*# sourceMappingURL=style.css.map */
+              transform: scale(1); } } 

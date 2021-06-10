@@ -15,7 +15,7 @@
 .logo, .navbar-nav--opcionesPrincipales, .footPieLogo {
   color: white !important;
   font-family: "Black Ops One", cursive;
-  font-size: 40px;
+  font-size: 3rem;
   font-weight: bold; }
 
 .menuBarra {
@@ -483,6 +483,7 @@
   flex-grow: 1; }
 
 .product-title, .price, .sizes, .colors {
+  font-family: "Antonio", sans-serif;
   text-transform: UPPERCASE;
   font-weight: bold; }
 
@@ -519,6 +520,8 @@
   margin-left: 20px; }
 
 .add-to-cart, .like {
+  font-family: "Antonio", sans-serif;
+  font-size: 1.5rem;
   background: #bb1b1b;
   padding: 1.2em 1.5em;
   border: none;
@@ -564,7 +567,6 @@
     -webkit-transform: scale(1);
     transform: scale(1); } }
 
-/*# sourceMappingURL=style.css.map */
 .mapa__lista {
   list-style: none;
   margin-bottom: 15px;
@@ -779,6 +781,9 @@ body {
 .h6 {
   margin: 0px; }
 
+h1 {
+  font-size: 3rem; }
+
 .enBloque {
   display: block; }
 
@@ -873,7 +878,7 @@ body {
   font-family: "Monda", sans-serif;
   font-weight: bold;
   color: black;
-  font-size: 3rem; }
+  font-size: 2rem; }
 
 .subtituloProductos {
   color: #bb1b1b;
@@ -977,3 +982,25 @@ body {
   .textoLibre h3 {
     text-align: justify !important;
     color: #bb1b1b; }
+
+/*CheckOut*/
+.needs-validation label {
+  font-family: "Antonio", sans-serif;
+  color: #bb1b1b; }
+
+.invalid-feedback {
+  font-family: "Antonio", sans-serif; }
+
+.my-0 {
+  font-family: "Antonio", sans-serif;
+  color: darkgrey !important; }
+
+.text-muted {
+  font-family: "Antonio", sans-serif;
+  color: #bb1b1b !important; }
+
+.text-fuerte {
+  font-family: "Antonio", sans-serif;
+  color: #bb1b1b !important;
+  text-decoration: solid !important;
+  size: 122rem !important; }
