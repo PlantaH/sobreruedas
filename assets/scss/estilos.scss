@@ -16,8 +16,7 @@ body {
     font-family: $fuenteBody;
     margin: $marginBody !important;
     padding: $paddingBody !important;
-}
-
+} 
 
 $hs: 1, 2, 3, 4, 5, 6;
 @each $h in $hs {
