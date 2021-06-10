@@ -28,6 +28,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Black+Ops+One&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Monda:wght@700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+ 
+
 </head>
 
 <body>   
@@ -93,39 +95,35 @@
         </div>
     </header> 
  
-    <main>
-      
-        <section class="seccionPrincipalMainContacto">
-           
+    <main>         
+        <section class="seccionPrincipalMainContacto">            
             <div class="gridContacto">
                 <div class="gridContactoMapa">
                     <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3283.8403573274327!2d-58.37249508418231!3d-34.60819816524338!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95a3352c95f0d4f5%3A0xee8dc0a5eb259e82!2sBalcarce%2050%2C%20C1064%20CABA!5e0!3m2!1ses-419!2sar!4v1618929299684!5m2!1ses-419!2sar" width="100%" height="500" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
                 </div>
-                <div class="gridContactoFormulario">
-                   
-                    <form action="">
+
+                <div class="gridContactoFormulario">                   
+                    <form action="" class="was-validated">
                         <div class="gridFormulario">
-                            <div class="gridFormularioTitulo" style="padding: 10px;">Escribinos aquí. Respondemos rápidamente.</div>
-                            <div class="gridFormularioNombre" style="padding: 10px;">Nombre</div>
-                            <div class="gridFormularioInputNombre"><input type="text" name="nombre" placeholder="Decinos tu nombre" class="inputFormulario"></div>
-                            <div class="gridFormularioEmail"  style="padding: 10px;">Email</div>
-                            <div class="gridFormularioInputEmail"><input type="text" name="email" placeholder="Decinos tu email"  class="inputFormulario"></div>
-                            <div class="gridFormularioComentarios" style="padding: 10px;">Mensaje</div>
+                            <div class="gridFormularioTitulo">Escribinos aquí. Respondemos rápidamente.</div>
+                            <div class="gridFormularioNombre">Nombre</div>
+                            <div class="gridFormularioInputNombre"><input type="text" name="nombre" placeholder="Decinos tu nombre" class="inputFormulario" required></div>
+                            <div class="gridFormularioEmail">Email</div>
+                            <div class="gridFormularioInputEmail"><input type="text" name="email" placeholder="Decinos tu email"  class="inputFormulario" required></div>
+                            <div class="gridFormularioComentarios">Mensaje</div>
                             <div class="gridFormularioInputComentarios"><textarea name="comentarios" cols="30" rows="5"  class="inputFormulario">Tu mensaje...</textarea></div>
                             <div class="gridFormularioBotones">
                                 <div>
                                     <button type="reset" class="m-button m-button--reset">Reseteo</button>
                                 </div>
                                 <div>
-                                    <button type="button" class="m-button m-button--send">Enviar</button>
+                                    <button type="submit" class="m-button m-button--send">Enviar</button>
                                 </div>
                             </div>
-                        </div>
-                      
+                        </div>                      
                     </form>
                 </div>
-            </div> 
-           
+            </div>            
         </section>  
     </main>
     
@@ -175,27 +173,28 @@
         <!-- Modal -->
 
     </footer>
-     <!--Javascript de bootstrap-->
-     <script src="../cdn/js/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-     <script src="../cdn/js/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
-     <script src="../cdn/js/bootstrap.min.js" integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF" crossorigin="anonymous"></script>    
-     
-     <div id="menuBottom">
-      <a href="#" class="subir_flotante"> <i class="fas fa-arrow-up subir_flotante-icon"></i></a>
-     </div>   
- 
-     <script>
-         onscroll = function() {
-             var appended = false;
-             var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
-             if (scrollTop > 100) {
-                 $("#menuBottom").css("display", "block");
-                    appended = true;               
-             } else {                
-                 $("#menuBottom").css("display", "none");
-                 appended = false;                
-             }
-             };
-     </script>
+
+    <!--Javascript de bootstrap-->
+    <script src="../cdn/js/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="../cdn/js/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="../cdn/js/bootstrap.min.js" integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF" crossorigin="anonymous"></script>    
+    
+    <div id="menuBottom">
+    <a href="#" class="subir_flotante"> <i class="fas fa-arrow-up subir_flotante-icon"></i></a>
+    </div>   
+
+    <script>
+        onscroll = function() {
+            var appended = false;
+            var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+            if (scrollTop > 100) {
+                $("#menuBottom").css("display", "block");
+                appended = true;               
+            } else {                
+                $("#menuBottom").css("display", "none");
+                appended = false;                
+            }
+            };
+    </script>
 </body>
 </html>

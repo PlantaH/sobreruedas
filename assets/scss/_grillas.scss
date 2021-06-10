@@ -41,7 +41,7 @@
     flex-wrap:wrap;
     align-content: center;
     margin-top: 60px;   
-    grid-template-columns: 50% 50%;
+    grid-template-columns: 30% 70%;
     grid-template-areas: "gridContactoMapa gridContactoFormulario"
                          ;
   }
@@ -65,11 +65,11 @@
     font-family: 'Monda', sans-serif;                     
 }
 .gridFormularioTitulo { grid-area: gridFormularioTitulo; text-align: center;}
-.gridFormularioNombre { grid-area: gridFormularioNombre;  color:$crimson;}
+.gridFormularioNombre { grid-area: gridFormularioNombre;  color:$crimson;padding: 10px; }
 .gridFormularioInputNombre { grid-area: gridFormularioInputNombre;  }
-.gridFormularioEmail { grid-area: gridFormularioEmail;  color:$crimson;}
+.gridFormularioEmail { grid-area: gridFormularioEmail;  color:$crimson; padding: 10px;} 
 .gridFormularioInputEmail { grid-area: gridFormularioInputEmail;  }
-.gridFormularioComentarios { grid-area: gridFormularioComentarios;  color:$crimson;}
+.gridFormularioComentarios { grid-area: gridFormularioComentarios;  color:$crimson; padding: 10px;}
 .gridFormularioInputComentarios { grid-area: gridFormularioInputComentarios;  }
 .gridFormularioBotones { grid-area: gridFormularioBotones; text-align: center;}
 
