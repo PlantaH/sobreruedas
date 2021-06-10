@@ -579,6 +579,57 @@
     text-decoration: none;
     color: darkgrey; }
 
+#leftToRight {
+  animation: run ease 9s;
+  -webkit-animation: run ease 3s;
+  -moz-animation: run ease 3s;
+  -o-animation: run ease 3s;
+  -ms-animation: run ease 3s; }
+
+@keyframes run {
+  0% {
+    margin-left: -98%; }
+  100% {
+    margin-left: 0%; } }
+
+@-moz-keyframes run {
+  0% {
+    margin-left: -98%; }
+  100% {
+    margin-left: 0%; } }
+
+@-webkit-keyframes run {
+  0% {
+    margin-left: -98%; }
+  100% {
+    margin-left: 0%; } }
+
+@-o-keyframes run {
+  0% {
+    margin-left: -98%; }
+  100% {
+    margin-left: 0%; } }
+
+@-ms-keyframes run {
+  0% {
+    margin-left: -98%; }
+  100% {
+    margin-left: 0%; } }
+
+.tituloGracias {
+  font-family: "Monda", sans-serif;
+  font-weight: bold;
+  color: black;
+  font-size: 4rem;
+  padding: 20px; }
+
+.subtituloGracias {
+  font-family: "Monda", sans-serif;
+  font-weight: bold;
+  color: #bb1b1b;
+  font-size: 2rem;
+  padding: 20px; }
+
 .logoRedSocial {
   display: inline-block;
   font-size: 2rem;
