@@ -75,12 +75,16 @@ class Producto {
 /* */ 
 const nuevoCliente = new Cliente('');
 
+let listaProductosAll = [];
 let listaProductos = [];
 listaProductos.push( new Producto("moto","M-001","CFMOTO 450L", "5999",true,"0","../img/motos/moto3.jpg","2021"));
 listaProductos.push( new Producto("bici","B-001","KTM Fat Rat", "350",true,"","../img/bicis/bici1.jpg","2021"));
 listaProductos.push( new Producto("cuatri","C-001","CFORCE 600", "3500",true,"","../img/cuatris/cuatri1.jpg","2021"));
 listaProductos.push( new Producto("cuatri","C-002","CFMOTO 450L", "1500",false,"25000","../img/cuatris/cuatri2.jpg","2015"));
 listaProductos.push( new Producto("moto","M-002","TANGO 125I", "3500",false,"600","../img/motos/moto4.jpg","2020"));
+listaProductos.push( new Producto("bici","V-002","KTM R2R CROSS", "150",false,"","../img/bicis/bici2.jpg","2015"));
+
+listaProductosAll = listaProductos;
  
 /* */
 function cargarProductos(){
@@ -184,6 +188,15 @@ function ordenarProductos(m){
 
     cargarProductos();
    
+}
+
+function filtrarProductos(m){     
+    
+    listaProductos = listaProductosAll;     //Carga todos los productos
+
+    if (m != '') listaProductos = listaProductos.filter(prod => prod.tipo.toUpperCase() == m.toUpperCase() );
+   
+    cargarProductos();
 }
  
 
