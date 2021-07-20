@@ -86,7 +86,7 @@ listaProductos.push( new Producto("bici","V-002","KTM R2R CROSS", "150",false,""
 
 listaProductosAll = listaProductos;
  
-/* */
+/* carga productos DOM*/
 function cargarProductos(){
     let html_in='';
     let i = 0;
