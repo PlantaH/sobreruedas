@@ -1,4 +1,4 @@
-/* */
+//--ENTIDADES----------------------------------------------------------------------------------------------------------------------
 class Cliente{
     constructor(nombre) {      
         this.nombre  = nombre.toUpperCase();
@@ -70,9 +70,12 @@ class Producto {
     }
     
 }
+//--FIN ENTIDADES------------------------------------------------------------------------------------------------------------------
 
+//--VARIABLES----------------------------------------------------------------------------------------------------------------------
+localStorage.setItem('saludos', ['Hola!','Hi!','Hallo!','Ciao!','Salut!','Yassou!','Hej!','Oi!']);
+const saludosCliente = localStorage.getItem('saludos')
 
-/* */ 
 const nuevoCliente = new Cliente('');
 
 let listaProductosAll = [];
@@ -85,80 +88,116 @@ listaProductos.push( new Producto("moto","M-002","TANGO 125I", "3500",false,"600
 listaProductos.push( new Producto("bici","V-002","KTM R2R CROSS", "150",false,"","../img/bicis/bici2.jpg","2015"));
 
 listaProductosAll = listaProductos;
+
+const listaProductosHtml = document.getElementById("html_in")
+const nombreClienteHtml = document.getElementById("nombreCliente")
+const saludoClienteHtml = document.getElementById("saludoCliente")
+
+//--FIN VARIABLES------------------------------------------------------------------------------------------------------------------
+
  
-/* carga productos DOM*/
+//--EVENTOS------------------------------------------------------------------------------------------------------------------------
+function saludoRandom(min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+function cargarSaludoCliente(){
+    let lista   =  saludosCliente.split(",");
+    let div = saludoClienteHtml;
+    div.textContent = lista[saludoRandom(0, lista.length -1)];
+}
+function cargarNombreCliente(){    
+    let div = nombreClienteHtml;
+    div.textContent = nuevoCliente.miNombre().substring(0,10)
+}
+
+function limpiarProductos(){
+    let div = listaProductosHtml;
+    while (div.firstChild) {
+        div.removeChild(div.firstChild);
+    }
+}
 function cargarProductos(){
-    let html_in='';
-    let i = 0;
-    let c = 0;
+
+    limpiarProductos()
+
+    let t0_d1 = document.createElement("div")
+
     for (const prod of listaProductos){
-        i += 1;    
-        c += 1;
-
-        
-        if (c == 1) html_in = html_in + '<div class="row" id="ads">' 
-
-        html_in = html_in + '<div class="col-md-4 padCard">'
-        html_in = html_in + '<div class="card rounded">'
-        html_in = html_in + '<div class="card-image">'                                                                                   
-        html_in = html_in + '<span class="card-notify-year">' + prod.miAnio() + '</span>' 
-        if (prod.esNueva())  html_in = html_in + '<span class="card-notify-badge">Nueva!</span>'
-        html_in = html_in + '<img class="img-fluid imagenProductoLista" src="' + prod.miFoto() + '" alt="' +  prod.miNombre() + '" />'
-        html_in = html_in + '</div>'
-        html_in = html_in + '<div class="card-image-overlay m-auto">'
-        html_in = html_in + '<span class="card-detail-badge">' + prod.esNuevaUsada() + '</span>'
-        html_in = html_in + '<span class="card-detail-badge">u$d ' + prod.miPrecio() + '</span>'
-        html_in = html_in + '<span class="card-detail-badge">' + prod.miKms() + ' Kms</span>'
-        html_in = html_in + '</div>'
-        html_in = html_in + '<div class="card-body text-center">'
-        html_in = html_in + '<div class="m-auto">'
-        html_in = html_in + '<h5 class="titulo">' +  prod.miNombre() + ' </h5>'
-        html_in = html_in + '</div>'
-        html_in = html_in + '<a class="ads__botonDetalle" href="../views/detalle.html">Ver</a>'
-        html_in = html_in + '</div>'
-        html_in = html_in + '</div>'
-        html_in = html_in + '</div>'   
-        
-        if (c == 3) {
-            html_in = html_in + '</div>'
-            c = 0;
-        }
+        //3
+        let t3_s1 = document.createElement("span")
+        t3_s1.setAttribute("class", "card-notify-year")
+        t3_s1.textContent =  prod.miAnio() 
          
+        let t3_s2 = document.createElement("span")
+        t3_s2.setAttribute("class", "card-notify-badge")
+        t3_s2.textContent =  'Nueva!'
+        
+        let t3_i1 = document.createElement("img")
+        t3_i1.setAttribute("class", "img-fluid imagenProductoLista")
+        t3_i1.setAttribute("src", prod.miFoto())
+        t3_i1.setAttribute("alt", prod.miNombre())
+        let t3_d1 = document.createElement("div")
+        t3_d1.setAttribute("class", "card-image")
+        t3_d1.appendChild(t3_s1)
+        if (prod.esNueva()) t3_d1.appendChild(t3_s2)
+        t3_d1.appendChild(t3_i1)
+       
+        //4
+        let t5_s1 = document.createElement("span")
+        t5_s1.setAttribute("class", "card-detail-badge")
+        t5_s1.textContent =  prod.esNuevaUsada()
+        let t5_s2 = document.createElement("span")
+        t5_s2.setAttribute("class", "card-detail-badge")
+        t5_s2.textContent = 'u$d ' + prod.esNuevaUsada()
+        let t5_s3 = document.createElement("span")
+        t5_s3.setAttribute("class", "card-detail-badge")
+        t5_s3.textContent = prod.miKms()+ ' Kms'
+        let t4_d1 = document.createElement("div")
+        t4_d1.setAttribute("class", "card-image-overlay m-auto")
+        t4_d1.appendChild(t5_s1)
+        t4_d1.appendChild(t5_s2)
+        t4_d1.appendChild(t5_s3)
+       
+        //5
+        let t5_h5 = document.createElement("h5")
+        t5_h5.setAttribute("class", "titulo")
+        t5_h5.textContent =  prod.miNombre()
+        let t5_d2 = document.createElement("div")
+        t5_d2.setAttribute("class", "m-auto")
+        t5_d2.appendChild(t5_h5)
+        let t5_a = document.createElement("a")
+        t5_a.setAttribute("class", "ads__botonDetalle")
+        t5_a.setAttribute("href", "../views/detalle.html")
+        t5_a.textContent =  'Ver'
+        let t5_d1 = document.createElement("div")
+        t5_d1.setAttribute("class", "card-body text-center")
+        t5_d1.appendChild(t5_d2)
+        t5_d1.appendChild(t5_a)
+        
+        //2
+        let t2_d1 = document.createElement("div")
+        t2_d1.setAttribute("class", "card rounded")
+        t2_d1.appendChild(t3_d1)
+        t2_d1.appendChild(t4_d1)
+        t2_d1.appendChild(t5_d1)
+       
+        //1
+        let t1_d1 = document.createElement("div")
+        t1_d1.setAttribute("class", "col-md-4 padCard")
+        t1_d1.style.paddingBottom = "20px"
+        t1_d1.appendChild(t2_d1)
+               
+        
+        t0_d1.setAttribute("class", "row")
+        t0_d1.setAttribute("id", "ads")
+        t0_d1.appendChild(t1_d1)
     };
-
-    //Carga HTML con productos
-    document.getElementById('html_in').innerHTML = html_in
+    
+    let imprimir = listaProductosHtml;
+    imprimir.appendChild(t0_d1);    
      
 }
-/* */
-
-function verProducto(p){    
-    const prod =  listaProductos[p-1];
-
-    let msj = '[' + prod.miCodigo()  + '] '  + prod.miNombre() + ' el precio es de ' + prod.miPrecio();
-    
-    if ((prod.miTipo()!="BICI") && (prod.miKms()!=""))  
-        msj += ' tiene ' + prod.miKms() + ' kms' ;      
-    
-    if (prod.esNueva())
-        msj += ' el producto es Nuevo' ;  
-    else
-        msj += ' el producto es usado' ;  
-         
-    if (prod.estado())
-        msj += ' y esta vendido' ;  
-    else
-        msj += ' y esta disponible' ;  
-    
-    document.getElementById('producto' + p ).innerHTML = msj;
-}
- 
-function venderProducto(p){   
-    const prod =  listaProductos[p-1];    
-    alert(nuevoCliente.miNombre() + ' : '  + prod.vender());     
-}
-
-
 
 function ordenarProductos(m){   
     
@@ -198,10 +237,14 @@ function filtrarProductos(m){
    
     cargarProductos();
 }
- 
+//--FIN EVENTOS--------------------------------------------------------------------------------------------------------------------
 
-/* */
+//--LOGICA-------------------------------------------------------------------------------------------------------------------------
+nuevoCliente.comoTeLlamas();
+
+cargarNombreCliente();
+cargarSaludoCliente();
+
 cargarProductos();
 
-nuevoCliente.comoTeLlamas()
-/* */
+//--FIN LOGICA---------------------------------------------------------------------------------------------------------------------
