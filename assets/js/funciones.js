@@ -1,16 +1,3 @@
-//--ENTIDADES----------------------------------------------------------------------------------------------------------------------
-class Cliente{
-    constructor(nombre) {      
-        this.nombre  = nombre.toUpperCase();
-    }
-        
-    miNombre() {
-        return this.nombre.toUpperCase();
-    } 
-    comoTeLlamas() {
-        this.nombre  = prompt("Hola estas entrando al listado de productos","Ingresa tu nombre");
-    } 
-};
 
 class Producto {
     constructor(tipo,codigo,nombre, precio,nueva,kms,foto,anio) {
@@ -78,7 +65,7 @@ sessionStorage.setItem('mostrarItems','3');
 
 const saludosCliente = localStorage.getItem('saludos');
 
-const nuevoCliente = new Cliente('');
+//const nuevoCliente = new Cliente('');
 
 let listaProductosAll = [];
 let listaProductos = [];
@@ -88,7 +75,6 @@ listaProductos.push( new Producto("cuatri","C-001","CFORCE 600", "3500",true,"",
 listaProductos.push( new Producto("cuatri","C-002","CFMOTO 450L", "1500",false,"25000","../img/cuatris/cuatri2.jpg","2015"));
 listaProductos.push( new Producto("moto","M-002","TANGO 125I", "3500",false,"600","../img/motos/moto4.jpg","2020"));
 listaProductos.push( new Producto("bici","B-002","KTM R2R CROSS", "150",false,"","../img/bicis/bici2.jpg","2015"));
-
 listaProductos.push( new Producto("bici","B-003","KTM CITY FUN 26.3", "599",false,"","../img/bicis/bici6.jpg","2019"));
 
 listaProductosAll = listaProductos;
@@ -115,8 +101,7 @@ const btnMostrarMas = document.querySelector("#btnMostrarMas")
 
  
 //--EVENTOS------------------------------------------------------------------------------------------------------------------------
-btnMostrarMas.onclick = () => { 
-                    let mostrarItems = 3 + parseInt(sessionStorage.getItem('mostrarItems'));
+btnMostrarMas.onclick = () => { let mostrarItems = 3 + parseInt(sessionStorage.getItem('mostrarItems'));
                     sessionStorage.setItem('mostrarItems',mostrarItems);
                     cargarProductos();                           
                     };
@@ -139,9 +124,9 @@ function cargarSaludoCliente(){
     let div = saludoClienteHtml;
     div.textContent = lista[saludoRandom(0, lista.length -1)]
 }
-function cargarNombreCliente(){    
+function cargarNombreCliente(n){    
     let div = nombreClienteHtml;
-    div.textContent = nuevoCliente.miNombre().substring(0,10)
+    div.textContent = n.substring(0,10)
 }
 
 function limpiarProductos(){
@@ -279,11 +264,20 @@ function filtrarProductos(m){
 //--FIN EVENTOS--------------------------------------------------------------------------------------------------------------------
 
 //--LOGICA-------------------------------------------------------------------------------------------------------------------------
-//nuevoCliente.comoTeLlamas();
+let usuario = JSON.parse(localStorage.getItem("dataCliente"));
 
-//cargarNombreCliente();
-//cargarSaludoCliente();
+if (usuario.log == null) {
+    window.location='login.html'
+}else{
+    console.log(usuario.log)
+    //nuevoCliente.comoTeLlamas();
 
-cargarProductos();
+    cargarNombreCliente(usuario.usuario);
+    cargarSaludoCliente();
+
+    cargarProductos();
+}
+
+
 
 //--FIN LOGICA---------------------------------------------------------------------------------------------------------------------
