@@ -266,7 +266,7 @@ function filtrarProductos(m){
 //--LOGICA-------------------------------------------------------------------------------------------------------------------------
 let usuario = JSON.parse(localStorage.getItem("dataCliente"));
 
-if (usuario.log == null) {
+if (usuario == null) {
     window.location='login.html'
 }else{
     console.log(usuario.log)
