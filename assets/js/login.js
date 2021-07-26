@@ -26,11 +26,8 @@ function guardarDatos(e){
         const nuevoCliente = new Cliente(usuario,clave,true);
         
         localStorage.setItem("dataCliente", JSON.stringify(nuevoCliente));
-
-        console.log(JSON.parse(localStorage.getItem("dataCliente")));
-
-
-       // window.location='shop.html'
+       
+        window.location='shop.html'
     } else {
         console.log('Error')
     }
