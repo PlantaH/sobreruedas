@@ -102,8 +102,8 @@
                                 <div>
                                     <div>
                                         <div style="display: inline;">
-                                            <button onclick="filtrarProductos('')">Ver todos</button>&nbsp;<button onclick="filtrarProductos('bici')">Solo bicis</button>&nbsp;<button onclick="filtrarProductos('moto')">Solo motos</button>&nbsp;<button onclick="filtrarProductos('cuatri')">Solo cuatris</button>&nbsp;
-                                            <button onclick="ordenarProductos('codigo')">Ordenar por codigo</button>&nbsp;<button onclick="ordenarProductos('nombre')">Ordenar por nombre</button>&nbsp;<button onclick="ordenarProductos('precio')">Ordenar por precio</button> 
+                                            <button id="btnVerTodos">Ver todos</button>&nbsp;<button id="btnVerBicis">Solo bicis</button>&nbsp;<button id="btnVerMotos">Solo motos</button>&nbsp;<button id="btnVerCuatris"">Solo cuatris</button>&nbsp;
+                                            <button id="btnOrdenarCodigo">Ordenar por codigo</button>&nbsp;<button id="btnOrdenarNombre">Ordenar por nombre</button>&nbsp;<button id="btnOrdenarPrecio">Ordenar por precio</button> 
                                         </div>
                                     </div>                            
                                 </div>
@@ -112,6 +112,7 @@
                                     <!--PRODUCTOS-->    
                                 </div>
                                 
+                                <button onclick="mostrarMasProductos()" id="btnMostrarMas">mostrar mas productos</button> 
                                 
  
                                  
