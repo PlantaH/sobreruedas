@@ -2,7 +2,7 @@
 class Cliente{
     constructor(usuario,clave,log) {      
         this.usuario  = usuario.toUpperCase();
-        this.clave  = usuario.toUpperCase();
+        this.clave  = clave.toUpperCase();
         this.log = log;
     }        
     miEstado() {
@@ -10,11 +10,14 @@ class Cliente{
     } 
    
 };
+//--FIN ENTIDADES----------------------------------------------------------------------------------------------------------------------
 
-
+//--VARIABLES-------------------------------------------------------------------------------------------------------------------------
 let formularioLogin = document.getElementById("formularioLogin");
 formularioLogin.addEventListener("submit",guardarDatos)
+//--FIN VARIABLES---------------------------------------------------------------------------------------------------------------------
 
+//--EVENTOS---------------------------------------------------------------------------------------------------------------------------
 function guardarDatos(e){
     
     e.preventDefault();
@@ -32,18 +35,11 @@ function guardarDatos(e){
         console.log('Error')
     }
 }
+//--FIN EVENTOS--------------------------------------------------------------------------------------------------------------------
 
 //--LOGICA-------------------------------------------------------------------------------------------------------------------------
-//nuevoCliente.comoTeLlamas();
+let usuario = JSON.parse(localStorage.getItem("dataCliente"));
 
-//cargarNombreCliente();
-//cargarSaludoCliente();
-
-if (sessionStorage.getItem('dataCliente') != null){
-    console.log(1)
-}else{
-    console.log(2)
-}
-
+if (usuario != null) { window.location='shop.html' };
 //--FIN LOGICA---------------------------------------------------------------------------------------------------------------------
 

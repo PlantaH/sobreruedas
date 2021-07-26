@@ -60,6 +60,8 @@ class Producto {
 //--FIN ENTIDADES------------------------------------------------------------------------------------------------------------------
 
 //--VARIABLES----------------------------------------------------------------------------------------------------------------------
+let usuarioLogueado = JSON.parse(localStorage.getItem("dataCliente"));
+
 localStorage.setItem('saludos', ['Hola!','Hi!','Hallo!','Ciao!','Salut!','Yassou!','Hej!','Oi!']);
 sessionStorage.setItem('mostrarItems','3');
 
@@ -94,9 +96,7 @@ const btnOrdenarPrecio = document.querySelector("#btnOrdenarPrecio")
 
 const btnMostrarMas = document.querySelector("#btnMostrarMas")
 
-
-
-
+const btnSalir = document.querySelector("#btnSalir")
 //--FIN VARIABLES------------------------------------------------------------------------------------------------------------------
 
  
@@ -114,6 +114,11 @@ btnVerCuatris.onclick = () => { filtrarProductos('cuatri') };
 btnOrdenarCodigo.onclick = () => { ordenarProductos('codigo') };
 btnOrdenarNombre.onclick = () => { ordenarProductos('nombre') };
 btnOrdenarPrecio.onclick = () => { ordenarProductos('precio') };
+
+btnSalir.onclick = () => { 
+    localStorage.removeItem('dataCliente');
+    window.location='login.html'
+ };
 
 function saludoRandom(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
@@ -264,15 +269,15 @@ function filtrarProductos(m){
 //--FIN EVENTOS--------------------------------------------------------------------------------------------------------------------
 
 //--LOGICA-------------------------------------------------------------------------------------------------------------------------
-let usuario = JSON.parse(localStorage.getItem("dataCliente"));
 
-if (usuario == null) {
+
+if (usuarioLogueado == null) {
     window.location='login.html'
 }else{
-    console.log(usuario.log)
+    console.log(usuarioLogueado.clave)
     //nuevoCliente.comoTeLlamas();
 
-    cargarNombreCliente(usuario.usuario);
+    cargarNombreCliente(usuarioLogueado.usuario);
     cargarSaludoCliente();
 
     cargarProductos();
