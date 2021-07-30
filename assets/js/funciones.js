@@ -290,6 +290,9 @@ function filtrarProductos(m){
 
 
 function agregarCarrito(v){    
+   
+    $('#mensajeAgrego').modal('show');
+
     let vcarrito = JSON.parse(localStorage.getItem("carrito"))
 
     if (localStorage.getItem("carrito") != null) {
