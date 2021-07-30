@@ -1,4 +1,13 @@
 
+class Carrito {
+    constructor(itemCodigo, itemNombre, itemPrecio, cantidad) {
+        this.itemCodigo  = itemCodigo.toUpperCase();
+        this.itemNombre  = itemNombre.toUpperCase();
+        this.itemPrecio  = parseFloat(itemPrecio);    
+        this.cantidad  = parseInt(cantidad);                
+    }
+}
+
 class Producto {
     constructor(tipo,codigo,nombre, precio,nueva,kms,foto,anio) {
         this.tipo  = tipo.toUpperCase();
@@ -63,11 +72,11 @@ class Producto {
 let usuarioLogueado = JSON.parse(localStorage.getItem("dataCliente"));
 
 localStorage.setItem('saludos', ['Hola!','Hi!','Hallo!','Ciao!','Salut!','Yassou!','Hej!','Oi!']);
-sessionStorage.setItem('mostrarItems','3');
-
 const saludosCliente = localStorage.getItem('saludos');
 
-//const nuevoCliente = new Cliente('');
+sessionStorage.setItem('mostrarItems','3'); 
+
+let carritoItems = []
 
 let listaProductosAll = [];
 let listaProductos = [];
@@ -96,6 +105,8 @@ const btnOrdenarPrecio = document.querySelector("#btnOrdenarPrecio")
 
 const btnMostrarMas = document.querySelector("#btnMostrarMas")
 
+const btnItems = document.querySelector("#btnItems");
+const btnLimpiar  = document.querySelector("#btnLimpiar");
 const btnSalir = document.querySelector("#btnSalir")
 //--FIN VARIABLES------------------------------------------------------------------------------------------------------------------
 
@@ -119,7 +130,21 @@ btnSalir.onclick = () => {
     localStorage.removeItem('dataCliente');
     window.location='login.html'
  };
+ btnLimpiar.onclick = () => { 
+    localStorage.removeItem('carrito');
+    document.getElementById("btnItems").textContent = 'Comprar Items (0)';  
+ };
 
+ btnItems.onclick = () => { 
+    let vcarrito = JSON.parse(localStorage.getItem("carrito"));
+    
+    if (localStorage.getItem("carrito") != null) 
+        window.location='checkout.html'  ; 
+    
+ }
+ //--FIN EVENTOS---------------------------------------------------------------------------------------------------------------------
+
+//--FUNCIONES------------------------------------------------------------------------------------------------------------------------
 function saludoRandom(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
 }
@@ -147,11 +172,12 @@ function cargarProductos(){
 
     let t0_d1 = document.createElement("div");
 
+    let modoVer  = "siMostrarProducto";
+
     for (const prod of listaProductos){
         i += 1;
-        //3
-        let t3_s1 = document.createElement("span");
-        //t3_s1.setAttribute("class", "card-notify-year")
+         
+        let t3_s1 = document.createElement("span");         
         t3_s1.classList.add("card-notify-year");
         t3_s1.textContent =  prod.miAnio();
          
@@ -167,9 +193,8 @@ function cargarProductos(){
         t3_d1.setAttribute("class", "card-image");
         t3_d1.appendChild(t3_s1);
         if (prod.esNueva()) t3_d1.appendChild(t3_s2);
-        t3_d1.appendChild(t3_i1);
-       
-        //4
+        t3_d1.appendChild(t3_i1);       
+         
         let t5_s1 = document.createElement("span");
         t5_s1.setAttribute("class", "card-detail-badge");
         t5_s1.textContent =  prod.esNuevaUsada();
@@ -183,9 +208,8 @@ function cargarProductos(){
         t4_d1.setAttribute("class", "card-image-overlay m-auto");
         t4_d1.appendChild(t5_s1);
         t4_d1.appendChild(t5_s2);
-        t4_d1.appendChild(t5_s3);
-       
-        //5
+        t4_d1.appendChild(t5_s3);       
+         
         let t5_h5 = document.createElement("h5");
         t5_h5.setAttribute("class", "titulo");
         t5_h5.textContent =  prod.miNombre();
@@ -194,39 +218,36 @@ function cargarProductos(){
         t5_d2.appendChild(t5_h5);
         let t5_a = document.createElement("a");
         t5_a.setAttribute("class", "ads__botonDetalle");
-        t5_a.setAttribute("href", "../views/detalle.html");
-        t5_a.textContent =  'Ver';
+        t5_a.setAttribute("id", "productoID");
+        t5_a.setAttribute("onclick", "agregarCarrito('" + prod.miCodigo() +"')" );
+        t5_a.textContent =  'Agregar';
         let t5_d1 = document.createElement("div");
         t5_d1.setAttribute("class", "card-body text-center");
         t5_d1.appendChild(t5_d2);
-        t5_d1.appendChild(t5_a);
+        t5_d1.appendChild(t5_a);        
         
-        //2
         let t2_d1 = document.createElement("div");
         t2_d1.setAttribute("class", "card rounded");
         t2_d1.appendChild(t3_d1);
         t2_d1.appendChild(t4_d1);
-        t2_d1.appendChild(t5_d1);
-       
-        //1
+        t2_d1.appendChild(t5_d1);       
+         
         let t1_d1 = document.createElement("div");
-        t1_d1.setAttribute("class", "col-md-4 padCard");
+        t1_d1.setAttribute("class", "col-md-4 padCard " + modoVer);
         t1_d1.style.paddingBottom = "20px";
-        t1_d1.appendChild(t2_d1);
-               
+        t1_d1.appendChild(t2_d1);               
         
         t0_d1.setAttribute("class", "row");
         t0_d1.setAttribute("id", "ads");
         t0_d1.appendChild(t1_d1);
 
-        if ( i == sessionStorage.getItem('mostrarItems') ) break;
+        if ( i == sessionStorage.getItem('mostrarItems') ) modoVer = "noMostrarProducto";
     };
     
     let imprimir = listaProductosHtml;
     imprimir.appendChild(t0_d1);    
      
 }
-
 function ordenarProductos(m){   
     
     if (m == 'codigo'){
@@ -266,23 +287,54 @@ function filtrarProductos(m){
    
     cargarProductos();
 }
-//--FIN EVENTOS--------------------------------------------------------------------------------------------------------------------
+
+
+function agregarCarrito(v){    
+    let vcarrito = JSON.parse(localStorage.getItem("carrito"))
+
+    if (localStorage.getItem("carrito") != null) {
+        if (vcarrito.find(item => item.itemCodigo == v)) {
+            vcarrito.find(item => item.itemCodigo == v).cantidad += 1;            
+            localStorage.setItem("carrito", JSON.stringify(vcarrito))
+        } else {      
+            let nombre = listaProductos.find(item => item.codigo == v).miNombre()
+            let precio = listaProductos.find(item => item.codigo == v).miPrecio()      
+
+            let carritoItem = new Carrito(v,nombre,precio,1)
+            vcarrito.push(carritoItem)
+            localStorage.setItem("carrito", JSON.stringify(vcarrito))
+        }
+    } else { 
+        
+        let nombre = listaProductos.find(item => item.codigo == v).miNombre()
+        let precio = listaProductos.find(item => item.codigo == v).miPrecio()
+
+        let carritoItem =new Carrito(v,nombre,precio,1)
+        carritoItems.push(carritoItem)
+        localStorage.setItem("carrito", JSON.stringify(carritoItems))
+    }
+    
+    cargaritemsCarrito()
+}
+
+function cargaritemsCarrito(){
+    let vcarrito = JSON.parse(localStorage.getItem("carrito"));
+    
+    if (localStorage.getItem("carrito") != null) 
+        document.getElementById("btnItems").textContent = 'Comprar Items (' + vcarrito.length + ')';    
+}
+
+//--FIN FUNCIONES------------------------------------------------------------------------------------------------------------------
 
 //--LOGICA-------------------------------------------------------------------------------------------------------------------------
-
-
 if (usuarioLogueado == null) {
     window.location='login.html'
 }else{
-    console.log(usuarioLogueado.clave)
-    //nuevoCliente.comoTeLlamas();
 
     cargarNombreCliente(usuarioLogueado.usuario);
     cargarSaludoCliente();
-
+    cargaritemsCarrito()
     cargarProductos();
+
 }
-
-
-
 //--FIN LOGICA---------------------------------------------------------------------------------------------------------------------

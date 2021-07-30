@@ -37,7 +37,14 @@
   flex-wrap: wrap;
   align-content: stretch;
   grid-template-columns: 100%;
-  grid-template-areas: "gridHeader"  "gridBannerPrincipal" "gridMensajePrincipal"   "gridProductosPrincipal"                          "gridContactoPrincipal"  "gridCarouselPrincipal" "gridFooter" "gridSubFooter"; }
+  grid-template-areas: "gridHeader" 
+ "gridBannerPrincipal"
+ "gridMensajePrincipal"  
+ "gridProductosPrincipal"                         
+ "gridContactoPrincipal" 
+ "gridCarouselPrincipal"
+ "gridFooter"
+ "gridSubFooter"; }
 
 .gridHeader {
   grid-area: gridHeader; }
@@ -101,7 +108,11 @@
   align-content: center;
   padding: 2%;
   grid-template-columns: 20% 80%;
-  grid-template-areas: "gridFormularioTitulo gridFormularioTitulo" "gridFormularioNombre gridFormularioInputNombre" "gridFormularioEmail gridFormularioInputEmail" "gridFormularioComentarios gridFormularioInputComentarios" "gridFormularioBotones gridFormularioBotones";
+  grid-template-areas: "gridFormularioTitulo gridFormularioTitulo"
+ "gridFormularioNombre gridFormularioInputNombre"
+ "gridFormularioEmail gridFormularioInputEmail"
+ "gridFormularioComentarios gridFormularioInputComentarios"
+ "gridFormularioBotones gridFormularioBotones";
   font-family: 'Monda', sans-serif; }
 
 .gridFormularioTitulo {
@@ -379,7 +390,9 @@
   color: #000;
   overflow: hidden;
   position: relative;
-  background-color: darkgrey; }
+  background-color: darkgrey; 
+  cursor: pointer;
+}
 
 #ads .ad-btn:hover {
   background-color: #e6de08;
@@ -755,7 +768,8 @@
     align-content: center;
     margin-top: 50px;
     grid-template-columns: 100%;
-    grid-template-areas: "gridContactoFormulario"  "gridContactoMapa"; }
+    grid-template-areas: "gridContactoFormulario" 
+ "gridContactoMapa"; }
   .gridContactoMapa {
     grid-area: gridContactoMapa; }
   .gridContactoFormulario {
@@ -1055,3 +1069,11 @@ h1 {
   color: #bb1b1b !important;
   text-decoration: solid !important;
   size: 122rem !important; }
+
+.siMostrarProducto{
+  display: block;
+}
+
+.noMostrarProducto{
+  display: none;
+}
