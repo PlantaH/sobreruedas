@@ -41,6 +41,7 @@ function guardarDatos(e){
 //--FIN FUNCIONES--------------------------------------------------------------------------------------------------------------------
 
 //--LOGICA-------------------------------------------------------------------------------------------------------------------------
+
 let usuario = JSON.parse(localStorage.getItem("dataCliente"));
 
 if (usuario != null) { window.location='shop.html' };

@@ -17,8 +17,10 @@
     <title>SOBRE RUEDAS - Aventura sobre ruedas - Shop</title>
     
     <!--Bootstrap llamada al cdn -->
-    <link href="../cdn/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+    <!--<link href="../cdn/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">-->
     <link href="../cdn/css/flag-icon.min.css" rel="stylesheet">  
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     
     <link rel="stylesheet" href="../assets/css/estilos.css"> 
 
@@ -89,6 +91,7 @@
         
     </header>
 
+    
     <main class="seccionPrincipal enBloque" style="position: relative; margin-top: 0%; padding: 0;"> 
         <div class="gridProductosPrincipal">
             <div class="seccionPrincipal enBloque">         
@@ -98,11 +101,20 @@
                         <div class="enBloque">
                             
                             <div class="container"> 
-                                <div style="margin: 20px; border-color: red; border:1px solid; overflow: auto;" >
-                                    <div style="display: inline;width: 70%; float: left; overflow: hidden; text-align: left;" class="tituloProductos" style="padding:30px;"><span id="saludoCliente"></span> <span id="nombreCliente"></span></div>
-                                    <div style="display: inline;width: 10%; float: left; overflow: hidden; text-align:center;"><button id="btnItems" style="margin-top: 5%;">Comprar Items (0)</button></div>
-                                    <div style="display: inline;width: 10%; float: left; overflow: hidden; text-align:center;"><button id="btnLimpiar" style="margin-top: 5%;">Vaciar Carrito</button></div>
-                                    <div style="display: inline;width: 10%; float: left; overflow: hidden; text-align:center;"><button id="btnSalir" style="margin-top: 5%;">Salir</button></div>
+                                <div  class="row" style="margin: 20px; border-color: red; border:1px solid; overflow: auto; height: 50px;" >
+                                    <div class="col" style="padding:5px;"><span id="saludoCliente" style=" float: left; margin-right: 5px;"></span> <span id="nombreCliente" style=" float: left;"></span><div id="mensajeBienvenida" style="display: none;"> NUESTRAS OFERTAS!</div></div>
+                                    <div class="col-md-auto" style="padding:5px;"><button id="btnItems" >Comprar Items (0)</button></div>
+                                    <div class="col-md-auto" style="padding:5px;"><button id="btnLimpiar">Vaciar Carrito</button></div>
+                                    <div class="col-md-auto" style="padding:5px;"><button id="btnSalir">Salir</button></div>
+                                </div>
+                                  
+                                  
+                                <div id="mensajeEliminados" style="display: none;"> 
+                                    <div>
+                                        <div style="display: inline;">
+                                            Se eliminaron todos los items del carrito
+                                        </div>
+                                    </div>                            
                                 </div>
 
                                 <div>
@@ -179,15 +191,17 @@
 
     </footer>
 
+    
+
     <!-- Modal -->
     <div class="modal fade" id="mensajeAgrego" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Gracias</h5>            
+            <h5 class="modal-title" id="exampleModalLabel">SobreRuedas</h5>            
             </div>
             <div class="modal-body">
-            El producto se agrego al carrito.
+            El producto se agrego al carrito!
             </div>
             <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
@@ -197,7 +211,9 @@
     </div>
 
     <!--Javascript de bootstrap-->
-    <script src="../cdn/js/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <!--<script src="../cdn/js/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>-->
+    
+    <script src="https://code.jquery.com/jquery-3.6.0.js"   integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="   crossorigin="anonymous"></script> 
     <script src="../cdn/js/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
     <script src="../cdn/js/bootstrap.min.js" integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF" crossorigin="anonymous"></script>    
     
@@ -205,7 +221,8 @@
     <a href="#" class="subir_flotante"> <i class="fas fa-arrow-up subir_flotante-icon"></i></a>
     </div>   
  
-    <script src="../assets/js/funciones.js"></script>
+    <script src="../assets/js/anime.js"></script>
+    <script src="../assets/js/funciones.js"></script>   
 
     <script>
         onscroll = function() {

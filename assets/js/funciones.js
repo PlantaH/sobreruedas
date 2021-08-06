@@ -69,9 +69,10 @@ class Producto {
 //--FIN ENTIDADES------------------------------------------------------------------------------------------------------------------
 
 //--VARIABLES----------------------------------------------------------------------------------------------------------------------
+
 let usuarioLogueado = JSON.parse(localStorage.getItem("dataCliente"));
 
-localStorage.setItem('saludos', ['Hola!','Hi!','Hallo!','Ciao!','Salut!','Yassou!','Hej!','Oi!']);
+localStorage.setItem('saludos', ['Buen dia','Buenas tardes','Buenas noches']);
 const saludosCliente = localStorage.getItem('saludos');
 
 sessionStorage.setItem('mostrarItems','3'); 
@@ -130,23 +131,30 @@ btnSalir.onclick = () => {
     localStorage.removeItem('dataCliente');
     window.location='login.html'
  };
- btnLimpiar.onclick = () => { 
+
+ btnLimpiar.onclick = () => {     
     localStorage.removeItem('carrito');
     document.getElementById("btnItems").textContent = 'Comprar Items (0)';  
+   
+    mostrarMensajeEliminado() //en anime.js
  };
 
  btnItems.onclick = () => { 
-    let vcarrito = JSON.parse(localStorage.getItem("carrito"));
+    let vcarrito = JSON.parse(localStorage.getItem("carrito"));    
     
     if (localStorage.getItem("carrito") != null) 
-        window.location='checkout.html'  ; 
-    
+        window.location='checkout.html'  ;     
  }
  //--FIN EVENTOS---------------------------------------------------------------------------------------------------------------------
 
 //--FUNCIONES------------------------------------------------------------------------------------------------------------------------
 function saludoRandom(min, max) {
-    return Math.floor(Math.random() * (max - min + 1)) + min;
+    let now = new Date();
+    let hora = 100 + now.getHours();
+
+    if ((hora>=105) && (hora<112)) return 0
+    if ((hora>=112) && (hora<=119)) return 1  
+    if ((hora>119) && (hora<105)) return 2 
 }
 
 function cargarSaludoCliente(){
@@ -291,15 +299,18 @@ function filtrarProductos(m){
 
 function agregarCarrito(v){    
    
-    $('#mensajeAgrego').modal('show');
+    mostrarMensajeAgregado();
 
     let vcarrito = JSON.parse(localStorage.getItem("carrito"))
 
+
     if (localStorage.getItem("carrito") != null) {
+        
         if (vcarrito.find(item => item.itemCodigo == v)) {
             vcarrito.find(item => item.itemCodigo == v).cantidad += 1;            
             localStorage.setItem("carrito", JSON.stringify(vcarrito))
         } else {      
+             
             let nombre = listaProductos.find(item => item.codigo == v).miNombre()
             let precio = listaProductos.find(item => item.codigo == v).miPrecio()      
 
@@ -308,7 +319,8 @@ function agregarCarrito(v){
             localStorage.setItem("carrito", JSON.stringify(vcarrito))
         }
     } else { 
-        
+        let carritoItems = []
+
         let nombre = listaProductos.find(item => item.codigo == v).miNombre()
         let precio = listaProductos.find(item => item.codigo == v).miPrecio()
 
@@ -326,18 +338,22 @@ function cargaritemsCarrito(){
     if (localStorage.getItem("carrito") != null) 
         document.getElementById("btnItems").textContent = 'Comprar Items (' + vcarrito.length + ')';    
 }
+ 
 
 //--FIN FUNCIONES------------------------------------------------------------------------------------------------------------------
 
 //--LOGICA-------------------------------------------------------------------------------------------------------------------------
 if (usuarioLogueado == null) {
     window.location='login.html'
-}else{
-
-    cargarNombreCliente(usuarioLogueado.usuario);
-    cargarSaludoCliente();
-    cargaritemsCarrito()
-    cargarProductos();
-
 }
+
+ 
+cargarNombreCliente(usuarioLogueado.usuario);
+cargarSaludoCliente();
+
+mostrarMensajeBienvenida(); //en anime.js
+
+cargaritemsCarrito()   
+cargarProductos();
+ 
 //--FIN LOGICA---------------------------------------------------------------------------------------------------------------------

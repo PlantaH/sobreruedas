@@ -110,13 +110,14 @@ function eliminarItem(v){
 //--LOGICA-------------------------------------------------------------------------------------------------------------------------
 if (usuarioLogueado == null) {
     window.location='login.html'
-}else{
-    
-    limpiarItemsCarrito()
-    
-    listarCarrito()
-    
-    listarTotal()
-
 }
+ 
+limpiarItemsCarrito()
+
+listarCarrito()
+
+listarTotal()
+
+mostrarMensajeCheckOut()
+ 
 //--FIN LOGICA---------------------------------------------------------------------------------------------------------------------
