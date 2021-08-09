@@ -94,21 +94,15 @@ listaProductosAll = listaProductos;
 const listaProductosHtml = document.getElementById("html_in");
 const nombreClienteHtml = document.getElementById("nombreCliente");
 const saludoClienteHtml = document.getElementById("saludoCliente");
-
-const btnVerTodos   = document.querySelector("#btnVerTodos")  
-const btnVerBicis   = document.querySelector("#btnVerBicis") 
-const btnVerMotos   = document.querySelector("#btnVerMotos") 
-const btnVerCuatris = document.querySelector("#btnVerCuatris") 
-
-const btnOrdenarCodigo = document.querySelector("#btnOrdenarCodigo")
-const btnOrdenarNombre = document.querySelector("#btnOrdenarNombre")
-const btnOrdenarPrecio = document.querySelector("#btnOrdenarPrecio")
-
+  
 const btnMostrarMas = document.querySelector("#btnMostrarMas")
 
 const btnItems = document.querySelector("#btnItems");
 const btnLimpiar  = document.querySelector("#btnLimpiar");
 const btnSalir = document.querySelector("#btnSalir")
+
+const selOrden = document.querySelector("#selOrden")
+const selMostrar = document.querySelector("#selMostrar")
 //--FIN VARIABLES------------------------------------------------------------------------------------------------------------------
 
  
@@ -116,16 +110,8 @@ const btnSalir = document.querySelector("#btnSalir")
 btnMostrarMas.onclick = () => { let mostrarItems = 3 + parseInt(sessionStorage.getItem('mostrarItems'));
                     sessionStorage.setItem('mostrarItems',mostrarItems);
                     cargarProductos();                           
-                    };
-
-btnVerTodos.onclick = () => { filtrarProductos('') };
-btnVerBicis.onclick = () => { filtrarProductos('bici') };
-btnVerMotos.onclick = () => { filtrarProductos('moto') };
-btnVerCuatris.onclick = () => { filtrarProductos('cuatri') };
-
-btnOrdenarCodigo.onclick = () => { ordenarProductos('codigo') };
-btnOrdenarNombre.onclick = () => { ordenarProductos('nombre') };
-btnOrdenarPrecio.onclick = () => { ordenarProductos('precio') };
+                    }; 
+ 
 
 btnSalir.onclick = () => { 
     localStorage.removeItem('dataCliente');
@@ -138,6 +124,18 @@ btnSalir.onclick = () => {
    
     mostrarMensajeEliminado() //en anime.js
  };
+ 
+
+selOrden.onchange = (e) => {     
+    e.preventDefault();
+    ordenarProductos( $('#selOrden').val() ) 
+ };
+
+ selMostrar.onchange = (e) => {     
+    e.preventDefault();
+    filtrarProductos( $('#selMostrar').val() )
+ };
+
 
  btnItems.onclick = () => { 
     let vcarrito = JSON.parse(localStorage.getItem("carrito"));    

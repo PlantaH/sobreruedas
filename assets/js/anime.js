@@ -1,9 +1,10 @@
 //--FUNCIONES------------------------------------------------------------------------------------------------------------------
-
+/* Modal que agradece cuando se agrega un producto al carrito */
 const mostrarMensajeAgregado = () =>{   
     $('#mensajeAgrego').modal('show');
 }
 
+/*Muestra cartel avisando que se vacio el carrito */
 const mostrarMensajeEliminado = () =>{   
     $("#mensajeEliminados").css({      
       "height":"30px",
@@ -12,7 +13,7 @@ const mostrarMensajeEliminado = () =>{
     .slideUp(1500)
 }
 
-
+/* Muestra cartel de ofertas */
 const mostrarMensajeBienvenida = () =>{   
     $("#mensajeBienvenida").css({           
       "color":"blue",
@@ -26,6 +27,7 @@ const mostrarMensajeBienvenida = () =>{
     }, 2000);
 } 
 
+/* Oculta header en checkout */
 const mostrarMensajeCheckOut = () =>{   
     $(".gridBannerPrincipal")
         .slideUp(2000)
