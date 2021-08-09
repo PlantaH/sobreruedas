@@ -742,6 +742,8 @@
 *************************/
 /* MOBILE */
 @media (max-width: 767px) {
+  #mensajeBienvenida{
+    display: none !important;  }  
   .logoRedSocial {
     font-size: 3rem; }
   .logo, .navbar-nav--opcionesPrincipales, .footPieLogo {
