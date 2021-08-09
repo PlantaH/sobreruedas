@@ -120,7 +120,7 @@ btnSalir.onclick = () => {
 
  btnLimpiar.onclick = () => {     
     localStorage.removeItem('carrito');
-    document.getElementById("btnItems").textContent = 'Comprar Items (0)';  
+    document.getElementById("btnItems").textContent = '(0)';  
    
     mostrarMensajeEliminado() //en anime.js
  };
@@ -334,7 +334,7 @@ function cargaritemsCarrito(){
     let vcarrito = JSON.parse(localStorage.getItem("carrito"));
     
     if (localStorage.getItem("carrito") != null) 
-        document.getElementById("btnItems").textContent = 'Comprar Items (' + vcarrito.length + ')';    
+        document.getElementById("btnItems").textContent = '(' + vcarrito.length + ')';    
 }
  
 
