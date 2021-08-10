@@ -168,6 +168,26 @@
         </div>  
     </main>
 
+  
+    <!-- Modal -->
+    <div class="modal fade" id="eliminarModal" tabindex="-1" role="dialog" aria-labelledby="eliminarModal" aria-hidden="true" >
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">SobreRuedas</h5>             
+                </div>
+                <div class="modal-body">
+                    Queres eliminar el producto?                    
+                </div>
+                <div class="modal-footer">
+                    <input type="hidden" id="eliminarEste" value="" /> 
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
+                    <button type="button" class="btn btn-primary" onclick="eliminarItem( $('#eliminarEste').val() )">Si</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <div style="background-image:url(../img/fondohuella.png);height: 3rem;">&nbsp;</div>
     
     <footer class="gridFooter">    

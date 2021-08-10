@@ -6,7 +6,8 @@ let carrito = JSON.parse(localStorage.getItem("carrito"));
 const listaCarritoHtml = document.getElementById("html_in");
 const btnComprar = document.getElementById("btnComprar");
 
-
+let moneda = "ar$" ;
+if (parseFloat(sessionStorage.getItem('cambioARS')) == 1 ) moneda = "u$d"
 
 //--FIN VARIABLES------------------------------------------------------------------------------------------------------------------
 
@@ -24,23 +25,24 @@ function limpiarItemsCarrito(){
 }
 
 function listarCarrito(){    
-    let vcarrito = JSON.parse(localStorage.getItem("carrito"))
-   
+    let vcarrito = JSON.parse(localStorage.getItem("carrito"));
+    
+
     if (localStorage.getItem("carrito") != null) {
        
         vcarrito.forEach( element => {   
             let total = element.itemPrecio * element.cantidad ;
+            total = total * parseFloat(sessionStorage.getItem('cambioARS'));
 
-            let t3_s1 = document.createElement("span");         
-            t3_s1.setAttribute("class","text-muted"); 
-            t3_s1.setAttribute("style","cursor:pointer");            
-            t3_s1.setAttribute("onclick", `eliminarItem('${element.itemCodigo}')`)
-            t3_s1.textContent =  `eliminar`
+            
+            let t3_i1 = document.createElement("i");  
+            t3_i1.setAttribute("class","fas fa-trash-alt");            
+            t3_i1.setAttribute("style","cursor:pointer"); 
+            t3_i1.setAttribute("onclick", `mostrarEliminarItem('${element.itemCodigo}')`)            
 
             let t3_s2 = document.createElement("span");         
             t3_s2.setAttribute("class","text-muted"); 
-            t3_s2.textContent =  `U$D ${total}`
-
+            t3_s2.textContent =  `${moneda} ${total}`
             
             let t3_h1 = document.createElement("h6");         
             t3_h1.setAttribute("class","my-0");
@@ -54,9 +56,9 @@ function listarCarrito(){
 
             let t3_l1 = document.createElement("li");
             t3_l1.setAttribute("class","list-group-item d-flex justify-content-between lh-condensed");
-            t3_l1.appendChild(t3_d1);
-            t3_l1.appendChild(t3_s1);  
-            t3_l1.appendChild(t3_s2);             
+            t3_l1.appendChild(t3_d1);            
+            t3_l1.appendChild(t3_s2); 
+            t3_l1.appendChild(t3_i1);            
 
             let imprimir = listaCarritoHtml;
             imprimir.appendChild(t3_l1); 
@@ -76,11 +78,13 @@ function listarTotal(){
 
     let t3_s1 = document.createElement("span");         
     t3_s1.setAttribute("class","my-0");    
-    t3_s1.textContent =  `Total (USD)`
+    t3_s1.setAttribute("style","font-size:2rem");
+    t3_s1.textContent =  `Total (${moneda})`
 
     let t3_s2 = document.createElement("span");         
-    t3_s2.setAttribute("class","text-muted");    
-    t3_s2.textContent =  `U$D ${sessionStorage.getItem("totalCarrito")}`
+    t3_s2.setAttribute("class","text-muted"); 
+    t3_s2.setAttribute("style","font-size:2rem");    
+    t3_s2.textContent =  `${moneda} ${sessionStorage.getItem("totalCarrito")}`
 
     let t3_l1 = document.createElement("li");
     t3_l1.setAttribute("class","list-group-item d-flex justify-content-between");
@@ -94,6 +98,13 @@ function listarTotal(){
                          
 
 }
+
+function mostrarEliminarItem(v){       
+    $('#eliminarEste').val(v);
+    $('#eliminarModal').modal('show');
+} 
+
+
 function eliminarItem(v){
     limpiarItemsCarrito();
     sessionStorage.setItem("totalCarrito", 0);
@@ -104,7 +115,11 @@ function eliminarItem(v){
     
     listarCarrito()
     listarTotal()
+
+    $('#eliminarModal').modal('hide')
+        
 }
+
 //--FIN FUNCIONES------------------------------------------------------------------------------------------------------------------
 
 //--LOGICA-------------------------------------------------------------------------------------------------------------------------

@@ -103,6 +103,13 @@ const btnSalir = document.querySelector("#btnSalir")
 
 const selOrden = document.querySelector("#selOrden")
 const selMostrar = document.querySelector("#selMostrar")
+
+
+const URLGET = "https://www.dolarsi.com/api/api.php?type=valoresprincipales"
+const selMoneda = document.querySelector("#selMoneda")
+
+
+
 //--FIN VARIABLES------------------------------------------------------------------------------------------------------------------
 
  
@@ -143,6 +150,36 @@ selOrden.onchange = (e) => {
     if (localStorage.getItem("carrito") != null) 
         window.location='checkout.html'  ;     
  }
+
+ 
+selMoneda.onchange = (e) => {     
+    e.preventDefault();
+    
+    $('#html_in').html('<div class="loading" style="padding:50px"><img src="../img/loader.gif" alt="cargando" /><br/>Un momento, por favor...</div>');
+
+    if ( $('#selMoneda').val() == "ARS"){ 
+
+        $.ajax({
+            method: "POST",
+            url:  URLGET,
+            data: '',
+            success: function(respuesta){                
+                let misDatos = respuesta;
+                for (const dato of misDatos) {
+                    if ( dato.casa.nombre == 'Dolar') 
+                      parseFloat(sessionStorage.setItem('cambioARS', dato.casa.venta));                  
+                };
+                cargarProductos()
+            }
+        });
+    }else{
+        parseFloat(sessionStorage.setItem('cambioARS',1))
+        cargarProductos()
+    }
+     
+    
+ };
+
  //--FIN EVENTOS---------------------------------------------------------------------------------------------------------------------
 
 //--FUNCIONES------------------------------------------------------------------------------------------------------------------------
@@ -179,6 +216,7 @@ function cargarProductos(){
     let t0_d1 = document.createElement("div");
 
     let modoVer  = "siMostrarProducto";
+    let moneda = "ar$" 
 
     for (const prod of listaProductos){
         i += 1;
@@ -206,7 +244,8 @@ function cargarProductos(){
         t5_s1.textContent =  prod.esNuevaUsada();
         let t5_s2 = document.createElement("span");
         t5_s2.setAttribute("class", "card-detail-badge");
-        t5_s2.textContent = 'u$d ' + prod.miPrecio();
+        if (parseFloat(sessionStorage.getItem('cambioARS')) == 1 ) moneda = "u$d"
+        t5_s2.textContent = moneda + ' ' + prod.miPrecio() * parseFloat(sessionStorage.getItem('cambioARS'));
         let t5_s3 = document.createElement("span");
         t5_s3.setAttribute("class", "card-detail-badge");
         t5_s3.textContent = prod.miKms()+ ' Kms';
@@ -345,7 +384,13 @@ if (usuarioLogueado == null) {
     window.location='login.html'
 }
 
- 
+if (sessionStorage.getItem('cambioARS') == null)  parseFloat(sessionStorage.setItem('cambioARS',1)) //Carga por defecto valor dolar
+
+if (sessionStorage.getItem('cambioARS') == "1")
+    $('#selMoneda').val('USD') 
+else
+    $('#selMoneda').val('ARS') 
+
 cargarNombreCliente(usuarioLogueado.usuario);
 cargarSaludoCliente();
 
