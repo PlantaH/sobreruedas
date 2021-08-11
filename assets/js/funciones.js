@@ -163,6 +163,11 @@ selMoneda.onchange = (e) => {
             method: "POST",
             url:  URLGET,
             data: '',
+            error: function(respuesta){
+                parseFloat(sessionStorage.setItem('cambioARS',1))
+                cargarProductos()
+                 $('#selMoneda').val('USD') 
+            },
             success: function(respuesta){                
                 let misDatos = respuesta;
                 for (const dato of misDatos) {
