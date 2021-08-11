@@ -164,14 +164,14 @@ selMoneda.onchange = (e) => {
             url:  URLGET,
             data: '',
             error: function(respuesta){
-                parseFloat(sessionStorage.setItem('cambioARS',1))
-                cargarProductos()
+                parseFloat(sessionStorage.setItem('cambioARS',1));
+                cargarProductos();
                  $('#selMoneda').val('USD') 
             },
             success: function(respuesta){                
                 let misDatos = respuesta;
                 for (const dato of misDatos) {
-                    if ( dato.casa.nombre == 'Dolar') 
+                    if ( dato.casa.nombre == 'Dolar');
                       parseFloat(sessionStorage.setItem('cambioARS', dato.casa.venta));                  
                 };
                 cargarProductos()
