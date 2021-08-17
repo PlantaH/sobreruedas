@@ -69,7 +69,6 @@ class Producto {
 //--FIN ENTIDADES------------------------------------------------------------------------------------------------------------------
 
 //--VARIABLES----------------------------------------------------------------------------------------------------------------------
-
 let usuarioLogueado = JSON.parse(localStorage.getItem("dataCliente"));
 
 localStorage.setItem('saludos', ['Buen dia','Buenas tardes','Buenas noches']);
@@ -80,6 +79,7 @@ sessionStorage.setItem('mostrarItems','3');
 let carritoItems = []
 
 let listaProductosAll = [];
+
 let listaProductos = [];
 listaProductos.push( new Producto("moto","M-001","CFMOTO 450L", "5999",true,"0","../img/motos/moto3.jpg","2021"));
 listaProductos.push( new Producto("bici","B-001","KTM Fat Rat", "350",true,"","../img/bicis/bici1.jpg","2021"));
@@ -107,9 +107,6 @@ const selMostrar = document.querySelector("#selMostrar")
 
 const URLGET = "https://www.dolarsi.com/api/api.php?type=valoresprincipales"
 const selMoneda = document.querySelector("#selMoneda")
-
-
-
 //--FIN VARIABLES------------------------------------------------------------------------------------------------------------------
 
  
@@ -196,7 +193,7 @@ function saludoRandom(min, max) {
 
     if ((hora>=105) && (hora<112)) return 0
     if ((hora>=112) && (hora<=119)) return 1  
-    if ((hora>119) && (hora<105)) return 2 
+    if ((hora>119) ) return 2 
 }
 
 function cargarSaludoCliente(){
