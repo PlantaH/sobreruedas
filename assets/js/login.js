@@ -28,22 +28,26 @@ function guardarDatos(e){
     let usuario = document.querySelector("#usuarioLogin").value
     let clave = document.querySelector("#claveLogin").value
     
-    if ((usuario == 'juan') && (clave =='perez'))  {
+    if ((usuario != '') && (clave !=''))  {
         const nuevoCliente = new Cliente(usuario,clave,true);
         
         localStorage.setItem("dataCliente", JSON.stringify(nuevoCliente));
        
         window.location='shop.html'
     } else {
-        console.log('Error')
+        Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: 'No pudimos encontrar tu usuario.',
+            footer: 'Por favor completa tu usuario y clave.'
+          })
     }
 }
 //--FIN FUNCIONES--------------------------------------------------------------------------------------------------------------------
 
 //--LOGICA-------------------------------------------------------------------------------------------------------------------------
-
 let usuario = JSON.parse(localStorage.getItem("dataCliente"));
 
-if (usuario != null) { window.location='shop.html' };
+if (usuario != null) { window.location='shop.html' }; // Si encuentra que el usuario esta logueado lo redirecciona directamente al shop
 //--FIN LOGICA---------------------------------------------------------------------------------------------------------------------
 

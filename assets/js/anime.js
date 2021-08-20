@@ -1,11 +1,16 @@
 //--FUNCIONES------------------------------------------------------------------------------------------------------------------
-/* Modal que agradece cuando se agrega un producto al carrito */
-const mostrarMensajeAgregado = () =>{   
-    $('#mensajeAgrego').modal('show');
+/* agradece cuando se agrega un producto al carrito */
+const mostrarMensajeItemAgregado = () =>{      
+    Swal.fire({
+        icon: 'success',
+        title: 'Gracias',
+        text: 'El producto se agrego al carrito!',
+        footer: ''
+      })
 }
 
 /*Muestra cartel avisando que se vacio el carrito */
-const mostrarMensajeEliminado = () =>{   
+const mostrarMensajeEliminarCarrito = () =>{   
     $("#mensajeEliminados").css({      
       "height":"30px",
     })
@@ -14,7 +19,7 @@ const mostrarMensajeEliminado = () =>{
 }
 
 /* Muestra cartel de ofertas */
-const mostrarMensajeBienvenida = () =>{   
+const mostrarMensajeOfertas = () =>{   
     $("#mensajeBienvenida").css({           
       "color":"blue",
       "font-size":"20px"
@@ -23,12 +28,12 @@ const mostrarMensajeBienvenida = () =>{
     .delay(2000) 
     .slideUp(2500);
     setTimeout(() => { 
-        mostrarMensajeBienvenida();
+        mostrarMensajeOfertas();
     }, 2000);
 } 
 
 /* Oculta header en checkout */
-const mostrarMensajeCheckOut = () =>{   
+const ocultarHeaderCheckOut = () =>{   
     $(".gridBannerPrincipal")
         .slideUp(2000)
         .delay(2000) 

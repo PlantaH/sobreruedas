@@ -8,11 +8,10 @@ const btnComprar = document.getElementById("btnComprar");
 
 let moneda = "ar$" ;
 if (parseFloat(sessionStorage.getItem('cambioARS')) == 1 ) moneda = "u$d"
-
 //--FIN VARIABLES------------------------------------------------------------------------------------------------------------------
 
 //--FUNCIONES----------------------------------------------------------------------------------------------------------------------
-function limpiarItemsCarrito(){
+limpiarItemsCarrito = () => {
     btnComprar.style.visibility = "hidden";
 
     sessionStorage.removeItem('totalCarrito');
@@ -24,7 +23,7 @@ function limpiarItemsCarrito(){
     }
 }
 
-function listarCarrito(){    
+listarCarrito = () => {    
     let vcarrito = JSON.parse(localStorage.getItem("carrito"));
     
 
@@ -66,15 +65,13 @@ function listarCarrito(){
             sessionStorage.setItem("totalCarrito", parseFloat(sessionStorage.getItem("totalCarrito")) + parseFloat(total));
 
         });
-        
-
-        
+                
     } else { 
         console.log('no hay nada')
     }
    
 }
-function listarTotal(){  
+mostrarTotalCarrito = () => {  
 
     let t3_s1 = document.createElement("span");         
     t3_s1.setAttribute("class","my-0");    
@@ -99,13 +96,32 @@ function listarTotal(){
 
 }
 
-function mostrarEliminarItem(v){       
-    $('#eliminarEste').val(v);
-    $('#eliminarModal').modal('show');
+mostrarEliminarItem = (v) => {       
+    $('#eliminarEste').val(v); 
+
+    Swal.fire({
+        title: '¿Estas seguro?',
+        text: "¿Queres eliminar este item?",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Si, quiero eliminarlo!',
+        cancelButtonText: 'No!'
+      }).then((result) => {
+        if (result.isConfirmed) {
+          eliminarItem(v); 
+          Swal.fire(
+            'Eliminado!',
+            'El item fue eliminado.',
+            'success'
+          )
+        }
+      })
 } 
 
 
-function eliminarItem(v){
+eliminarItem = (v) => {
     limpiarItemsCarrito();
     sessionStorage.setItem("totalCarrito", 0);
 
@@ -114,10 +130,8 @@ function eliminarItem(v){
     localStorage.setItem("carrito", JSON.stringify(actualizo))
     
     listarCarrito()
-    listarTotal()
-
-    $('#eliminarModal').modal('hide')
-        
+    
+    mostrarTotalCarrito()
 }
 
 //--FIN FUNCIONES------------------------------------------------------------------------------------------------------------------
@@ -126,13 +140,13 @@ function eliminarItem(v){
 if (usuarioLogueado == null) {
     window.location='login.html'
 }
+
+limpiarItemsCarrito(); //chequea total para permitir comprar
  
-limpiarItemsCarrito()
+listarCarrito(); //carga todos los items del carrito
 
-listarCarrito()
+mostrarTotalCarrito(); //carga el valor total del carrito
 
-listarTotal()
-
-mostrarMensajeCheckOut()
+ocultarHeaderCheckOut(); //en anime.js
  
 //--FIN LOGICA---------------------------------------------------------------------------------------------------------------------
